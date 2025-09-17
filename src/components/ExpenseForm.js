@@ -11,7 +11,7 @@ const ExpenseForm = () => {
 
   
   useEffect(() => {
-    fetch("http://localhost:3000/api/")
+    fetch("https://expense-backend-ylod.onrender.com/api")
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -31,7 +31,7 @@ const ExpenseForm = () => {
     };
 
     if (editId) {
-  fetch(`http://localhost:3000/api/${editId}`, {
+  fetch(`https://expense-backend-ylod.onrender.com/api/${editId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(newItem),
@@ -46,7 +46,7 @@ const ExpenseForm = () => {
 }
 
      else {
-      fetch("http://localhost:3000/api/post", {
+      fetch("https://expense-backend-ylod.onrender.com/api/post", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newItem),
@@ -67,7 +67,7 @@ const ExpenseForm = () => {
 
   console.log("Deleting item with id:", id);
 
-  fetch(`http://localhost:3000/api/${id}`, { method: "DELETE" })
+  fetch(`https://expense-backend-ylod.onrender.com/api/${id}`, { method: "DELETE" })
     .then(() => {  
       const updated = items.filter(item => item._id !== id);
       setItems(updated);
